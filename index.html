@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moses' Institute of Spoken English & Grammar | Mastery in English</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 
 <body>
@@ -14,6 +14,11 @@
         <div class="container">
             <nav>
                 <div class="logo">MOSES' INSTITUTE OF SPOKEN ENGLISH AND GRAMMAR</div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -215,9 +220,22 @@
                 <p>&copy; 2026 Moses' Institute of Spoken English & Grammar. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </footer>    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('nav ul');
 
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
 
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
